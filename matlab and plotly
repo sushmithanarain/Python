@@ -1,0 +1,193 @@
+
+# import different libraries/packages
+import matplotlib.pyplot as plt 
+import pandas as pd
+import numpy as np
+
+
+#Creating and Plotting an Array 
+xaxes = np.array([0,10])
+yaxes = np.array([0,100])
+plt.plot(xaxes, yaxes)
+plt.show()
+
+#1.
+x = np.array([2,3,4,5,6,6,7,8])
+y = np.array([-9,8,7,6,5,4,3,2])
+plt.plot(x, alpha = 0.5, marker = "o", c = "red", linestyle = "dotted")
+plt.xlabel("xvar")
+plt.ylabel("freq")
+plt.grid()
+plt.title("Matplotlibgraph")
+Text(0.5, 1.0, 'Matplotlibgraph')
+
+# practice
+# make data
+x = np.linspace(0, 10, 100)
+y = 4 + 2 * np.sin(2 * x)
+
+# plot
+fig, ax = plt.subplots()
+
+ax.plot(x, y, linewidth=2.0)
+
+ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
+       ylim=(0, 8), yticks=np.arange(1, 8))
+
+plt.show()
+
+x1 = np.array([30,90,42,56,73,27,84])
+y1 = np.array([76,10,65,48,92,44,74])
+plt.plot(x1, alpha = 0.5, marker = "*", c = "purple", linestyle = "dashdot")
+plt.xlabel("xvar")
+plt.ylabel("freq")
+plt.grid()
+plt.title("Matplotlibgraph")
+Text(0.5, 1.0, 'Matplotlibgraph')
+
+#3. Scatterplot
+x1 = np.array([30,90,42,56,73,27,84])
+y1 = np.array([76,10,65,48,92,44,74])
+plt.scatter(x1,y1, alpha = 0.5, marker = ">", c = "purple")
+plt.legend()
+plt.show()
+No handles with labels found to put in legend.
+
+#4. 
+x2 = np.array([8,8,8,8,7,6])
+y2 = np.array([6,5,4,8,7,6])
+plt.scatter(x2,y2, alpha = 0.5, marker = "*", c = "purple")
+plt.xlabel("xvar")
+plt.ylabel("freq")
+plt.grid()
+plt.title("Matplotlibgraph - Scatter")
+plt.legend()
+plt.show()
+No handles with labels found to put in legend.
+
+#5. Bar plot
+batch = np.array(["Science", "Maths", "Social", "English", "Economics"])
+students = np.array([55,58,79,87,100])
+plt.bar(batch, students, color = "blue", width=0.8)
+plt.xlabel("Subjects")
+plt.ylabel("Marks")
+plt.title("Matplotlibgraph - Bar")
+plt.savefig("D:/4th year/2nd sem/python/DATA VISUALISATION NOTES")
+
+#6. Histogram
+x = np.random.normal(0,1,1000)
+plt.hist(x)
+(array([  5.,  22.,  55., 126., 218., 244., 174., 102.,  39.,  15.]),
+ array([-3.18326008, -2.57335281, -1.96344555, -1.35353828, -0.74363102,
+        -0.13372375,  0.47618352,  1.08609078,  1.69599805,  2.30590532,
+         2.91581258]),
+ <BarContainer object of 10 artists>)
+
+#6. Histogram
+x = np.random.normal(0,1,1000)
+plt.hist(x)
+(array([  7.,  27.,  76., 162., 179., 224., 173.,  95.,  40.,  17.]),
+ array([-3.01510101, -2.43489345, -1.85468589, -1.27447833, -0.69427077,
+        -0.11406322,  0.46614434,  1.0463519 ,  1.62655946,  2.20676702,
+         2.78697458]),
+ <BarContainer object of 10 artists>)
+
+#8. Pie Chart
+labels = ['Apples', 'Oranges', 'Bananas', 'Grapes']
+sizes = [25, 30, 20, 25]
+colors = ['#ff9999','#66b3ff','#99ff99','#ffcc99']
+fig1, ax1 = plt.subplots()
+ax1.pie(sizes, colors=colors, labels=labels, autopct='%1.1f%%', startangle=90)
+
+
+#pie chart
+x=[35,45,55,65]
+mylabels=["thar", "dezire","ciaz","campass"]
+plt.pie(x, labels=mylabels, startangle=75, labeldistance=0.5, radius=1.7, shadow= "TRUE",colors = ['lavender', 'yellow', 'violet','grey'])
+
+
+
+
+
+
+# ploty class
+
+
+import numpy as np
+import pandas as pd
+import plotly
+import plotly.express as px
+import plotly.graph_objects as go
+import plotly .io as pio
+
+df=pd.read_excel(r"D:\4th year\2nd sem\python\DATA VISUALISATION NOTES\test 2_set 1 (1).xlsx")
+df.head()
+
+a=px.scatter(df,x="State",y="fish_production",title="SCATTER FOR FISH PRODUCTION")
+a.update_traces(marker_size=10)
+a.show()
+#beatifying your graph 
+a=px.scatter(df, x="State", y="fish_production", title="scatter for Fish production", symbol="Year",size="fish_production", hover_name="Year",color="wage_category")
+a.update_layout(xaxis_title="State", yaxis_title_text="Fish Production", font_family="forte", font_color="orange")
+a.show()
+#animation frame
+a=px.scatter(df, x="State", y="fish_production", title="scatter for Fish production", symbol="Year",size="fish_production", hover_name="Year",color="wage_category",animation_frame="Year")
+a.update_layout(xaxis_title="State", yaxis_title_text="Fish Production", font_family="forte", font_color="orange")
+a.show()
+import plotly.graph_objs as go
+
+fig = go.Figure(data=go.Scatter(x=df['Region'], y=df['milk_production'], mode='markers', marker_color=df['milk_production'], text=df['Region']))
+
+fig.update_layout(title='Milk Production on basis of region')
+fig.show()
+#graph 2
+import plotly.express as px
+df=pd.read_excel(r"D:\4th year\2nd sem\python\DATA VISUALISATION NOTES\Test 2_Set 1 (1).xlsx")
+df.head()
+
+#animated plot
+fig = px.line(df, x='Year', y='grain_storage_capacity', color='State', title='Grain Storage Capacity', animation_frame='State', markers=True)
+fig.show()
+df.columns = [col.replace("AAPL.", "") for col in df.columns]
+fig = go.Figure()
+fig.add_trace(
+    go.Scatter(x=list([df.State,df.Year]), y=list(df.power_availability)))
+fig.update_layout(title_text="YEARLY POWER AVAILABILITY",xaxis_title="Year",yaxis_title="POWER AVAILABLE")
+fig.update_layout(
+    xaxis=dict(
+        rangeselector=dict(
+            buttons=list([
+                dict(count=1,
+                     label="1y",
+                     step="year",
+                     stepmode="backward"),
+                dict(count=6,
+                     label="6y",
+                     step="year",
+                     stepmode="backward"),
+                dict(count=1,
+                     label="YTD",
+                     step="year",
+                     stepmode="todate"),
+                dict(count=1,
+                     label="1y",
+                     step="year",
+                     stepmode="backward"),
+                dict(step="all")
+            ])
+        ),
+        rangeslider=dict(
+            visible=True
+        ),
+        type="multicategory"
+    )
+)
+fig.show()
+a=px.line(df,x="State",y="power_availability",title="YEARLY AVAILABILITY OF POWER",hover_name="Year",symbol="Year",color="wage_category",animation_frame="Year")
+a.update_layout(xaxis_title="STATE",yaxis_title_text="POWER ABAILABLE",font_family="forte",font_color="lightblue")
+a.show()
+a=px.line(df,x="State",y="rice_production",title="YEARLY AVAILABILITY OF POWER",hover_name="Year",symbol="Year",color="wage_category",animation_frame="Year")
+a.update_layout(xaxis_title="STATE",yaxis_title_text="RICE PRODUCTION",font_family="forte",font_color="lightblue")
+a.show()
+ 
+
