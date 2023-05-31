@@ -25,53 +25,30 @@ from sklearn.linear_model import LogisticRegression
 # In[2]:
 
 
-data=pd.read_csv(r"C:\Users\nency\Downloads\car_data.csv", index_col="User ID")
+data=pd.read_csv("", index_col="")
 data.head()
 
 
-# In[3]:
 
 
-#discrete choice model
-#logistic, multinomial, nested, ordered
 
-
-# In[4]:
-
-
-#Binary Logistic Regression
-#dependent varaible takes value from 1 or 0. In this case we can't use the CLRM.It will not be distributed in the whole graph.
-#we get sigmoid function: s shaped function
-#finding the log odds of something to happen or not happen
-#two ways to do it in python
-
-
-# In[5]:
 
 
 data.describe()
 
 
-# In[6]:
-
 
 data.isnull()
 
-
-# In[7]:
 
 
 data=data.dropna()
 data.head()
 
 
-# In[8]:
-
 
 data.isnull().any()
 
-
-# In[9]:
 
 
 data['Genderd']=data['Gender'].replace({'Male':0,'Female':1})
@@ -95,8 +72,8 @@ data.hist()
 # In[12]:
 
 
-y=data['Purchased']
-X=data[['Genderd','Age','AnnualSalary']]
+y=data['Y']
+X=data[['Xd','X2','X3']]
 
 
 # In[13]:
@@ -139,7 +116,6 @@ y=data.iloc[:,2]
 X.head()
 
 
-# In[17]:
 
 
 #feature scaling to normalise the range of independent 
@@ -149,14 +125,12 @@ X=sc.fit_transform(X)
 X
 
 
-# In[18]:
-
 
 #splitting the data into test and train
 X_train, X_test, y_train, y_test=train_test_split(X,y,test_size=0.3, random_state=42)
 
 
-# In[19]:
+
 
 
 model1=LogisticRegression()
@@ -201,14 +175,9 @@ model1.predict_proba(X)
 from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score
 
 
-# In[26]:
-
-
 cnf_matrix=confusion_matrix(y_test, y_pred)
 cnf_matrix
 
-
-# In[27]:
 
 
 sns.heatmap(pd.DataFrame(cnf_matrix), cmap="coolwarm", annot=True)
@@ -246,7 +215,6 @@ recall=recall_score(y_test,y_pred)
 recall
 
 
-# In[31]:
 
 
 #f1 score
