@@ -6,7 +6,7 @@
 
 # Setting working directory
 os.getcwd()
-os.chdir("C:\\Users\\samhi\\Downloads\\2nd Sem M.Sc\\Python")
+os.chdir("")
 os.getcwd()
 
 
@@ -32,7 +32,7 @@ from sklearn import linear_model
 # In[7]:
 
 
-df=pd.read_csv("C:\\Users\\samhi\\Downloads\\2nd Sem M.Sc\\Python\\Linear regression.csv")
+df=pd.read_csv()
 df.head()
 
 
@@ -67,16 +67,16 @@ sns.pairplot(df)
 # Correlation
 correlations=df.corr()
 #Heat maps
-sns.heatmap(correlations, annot=True).set(title='Heat Map of consumtion data')
+sns.heatmap(correlations, annot=True).set(title='')
 
 
 # In[17]:
 
 
-df.plot(x='Population_Driver_licence(%)',y='Petrol_Consumption', style='o')
-plt.title('Petrol consumption and Average Income ')
-plt.xlabel('Population_Driver_licence(%)')
-plt.ylabel('petrol consumption')
+df.plot(x='a',y='b', style='o')
+plt.title('- ')
+plt.xlabel('a)
+plt.ylabel('b')
 plt.show()
 
 
@@ -84,8 +84,8 @@ plt.show()
 
 
 # Assigning dependent and independent variables
-X =df[["Average_income","Paved_Highways","Petrol_tax"]]
-y=df["Petrol_Consumption"]
+X =df[["x1","x2","x3"]]
+y=df["Y"]
 X.head(2)
 
 
@@ -108,9 +108,9 @@ model.summary()
 # In[21]:
 
 
-sns.regplot(x='Population_Driver_licence(%)',y="Petrol_Consumption",data=df)
-sns.lmplot(x='Petrol_tax',y="Petrol_Consumption",data=df)
-sns.lmplot(x='Average_income',y="Petrol_Consumption",data=df)
+sns.regplot(x='x1',y="Y",data=df)
+sns.lmplot(x='x2',y="Y",data=df)
+sns.lmplot(x='x3',y="Y",data=df)
 
 
 # In[22]:
