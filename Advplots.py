@@ -1,13 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
-#word cloud
-
-
-# In[2]:
 
 
 from wordcloud import WordCloud
@@ -97,7 +87,7 @@ import requests
 # In[20]:
 
 
-data=pd.read_csv(r"C:\Users\nency\Downloads\SDG.csv")
+data=pd.read_csv("")
 data
 
 
@@ -118,7 +108,7 @@ fig.write_image("image_india.jpeg")
 # In[21]:
 
 
-df=pd.read_excel(r"C:\Users\nency\Downloads\city_pop.xlsx")
+df=pd.read_excel("")
 df
 
 
