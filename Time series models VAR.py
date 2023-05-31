@@ -42,7 +42,7 @@ from arch.unitroot import engle_granger
 # In[57]:
 
 
-df1 = pd.read_csv("cpidata.csv")
+df1 = pd.read_csv("")
 
 
 # In[58]:
@@ -72,19 +72,7 @@ df1.plot()
 
 df1.isnull().any()
 
-#There are no missing values 
 
-
-# In[62]:
-
-
-### Unit root testing
-
-
-# In[141]:
-
-
-#ADF test
 
 adf = ADF(df1["CPI"])
 print(adf.summary().as_text())
